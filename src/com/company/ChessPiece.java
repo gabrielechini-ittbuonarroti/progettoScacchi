@@ -13,15 +13,19 @@ public abstract class ChessPiece{
         return this.pos;
     }
 
-    public boolean moveTo(Position pos){
-        boolean moved = false;
-        if(this.validMoves().contains(pos)){
-            this.pos = pos;
-            moved = true;
+    public boolean moveTo(Position pos) throws Exception{
+        if(pos.isValid()) {
+            boolean moved = false;
+            if (this.validMoves(pos).contains(pos)) {
+                this.pos = pos;
+                moved = true;
+            }
+            return moved;
+        } else {
+            throw new Exception("La posizione non è valida");
         }
-        return moved;
     }
 
-    public abstract ArrayList<Position> validMoves();
+    public abstract ArrayList<Position> validMoves(Position pos);
 
 }
