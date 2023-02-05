@@ -26,7 +26,15 @@ public class Position {
     }
 
     public boolean isValid(){
-        if((0 < row && row < 9) && (0 < col && col < 9)){
+        char[] colonValid = {'A','B','C','D','E','F','G','H'};
+        boolean colValid = false;
+        for(int i = 0; i < 8; i++){
+            if(colonValid[i] == col){
+                colValid = true;
+            }
+        }
+
+        if((0 < row && row < 9) && (colValid)){
             return true;
         } else {
             return false;
