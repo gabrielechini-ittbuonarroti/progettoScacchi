@@ -2,3 +2,4 @@
 *.txt
 out/
 *.iml
+*.DS_Store
