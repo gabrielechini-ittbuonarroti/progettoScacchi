@@ -37,6 +37,58 @@ public class Queen extends ChessPiece{
             mosse.add(p);
         }
         mosse.remove(pos);
+        Position posit = pos;
+        boolean continua = true;
+        i = 1;
+
+        while(continua){
+            posit = new Position((x+i), colonValid[y + i]);
+            if(posit.isValid()){
+                mosse.add(posit);
+            } else {
+                continua = false;
+            }
+            i = i + 1;
+        }
+
+        continua = true;
+        i = 1;
+
+        while(continua){
+            posit = new Position((x-i), colonValid[y + i]);
+            if(posit.isValid()){
+                mosse.add(posit);
+            } else {
+                continua = false;
+            }
+            i = i + 1;
+        }
+
+        continua = true;
+        i = 1;
+
+        while(continua){
+            posit = new Position((x+i), colonValid[y - i]);
+            if(posit.isValid()){
+                mosse.add(posit);
+            } else {
+                continua = false;
+            }
+            i = i + 1;
+        }
+
+        continua = true;
+        i = 1;
+
+        while(continua){
+            posit = new Position((x-i), colonValid[y - i]);
+            if(posit.isValid()){
+                mosse.add(posit);
+            } else {
+                continua = false;
+            }
+            i = i + 1;
+        }
         return mosse;
     }
 }
