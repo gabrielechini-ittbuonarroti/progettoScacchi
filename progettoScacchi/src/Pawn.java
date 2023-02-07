@@ -9,6 +9,7 @@ public class Pawn extends ChessPiece{
         }
 
         public ArrayList<Position> validMoves(Position pos){
+
             int x = pos.getRow() - 1;
             int y = 0;
 
@@ -29,26 +30,37 @@ public class Pawn extends ChessPiece{
 
             y = y - 1;
 
-            for(i = 0; i < 3; i++){
-                for(int j = 0; j < 3; j++){
-                    if(x < 1 || x > 8){
-                        valida = false;
-                    } else if(y < 0 || y > 7){
+            if(mosse.size() == 1) {
+                for (i = 0; i < 8; i++) {
+                    if (y > 2) {
                         valida = false;
                     } else {
                         valida = true;
                     }
-
-                    if(valida){
-                        Position posit = new Position(x, colonValid[y]);
-                        mosse.add(posit);
-                    }
-
-                    x = x + 1;
-                    y = y + 1;
                 }
             }
+            else{
+                for(i = 0; i < 8; i++){
+                    for(int j = 0; j < 8; j++){
+                        if(y > 1){
+                            valida = false;
+                        } else {
+                            valida = true;
+                        }
+                        if(valida){
+                            Position posit = new Position(x, colonValid[y]);
+                            mosse.add(posit);
+                        }
+
+                        x = x + 1;
+                        y = y + 1;
+                    }
+                }
+                    }
+
+
+
             return mosse;
         }
 
-}
+
