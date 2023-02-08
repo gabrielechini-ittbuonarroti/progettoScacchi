@@ -30,6 +30,7 @@ public class Pawn extends ChessPiece{
 
         y = y - 1;
 
+
         if(mosse.size() == 1) {
             for (i = 0; i < 8; i++) {
                 if (y > 2) {
